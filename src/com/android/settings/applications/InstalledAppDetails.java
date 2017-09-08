@@ -325,7 +325,8 @@ public class InstalledAppDetails extends Fragment
         // by not allowing disabling of apps signed with the
         // system cert and any launcher app in the system.
         if (mHomePackages.contains(mAppEntry.info.packageName)
-                || Utils.isSystemPackage(mPm, mPackageInfo)) {
+                || Utils.isSystemPackage(mPm, mPackageInfo)
+                || mAppEntry.info.packageName.equals("com.android.inputmethod.latin")) {
             // Disable button for core system applications.
             button.setText(R.string.disable_text);
         } else if (mAppEntry.info.enabled) {
